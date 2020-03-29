@@ -1,0 +1,22 @@
+<%- include('../contents/header')%>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <h2>Adicionar categoria</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/admin/categorias/insert" method="post">
+                            <label for="nome">Nome</label>
+                            <input type="text" name="nome" id="nome" placeholder="Nome" class="form-control">
+
+                            <label for="slug">Slug</label>
+                            <input type="text" name="slug" id="slug" placeholder="Slug" class="form-control">
+
+                            <button type="submit" class="btn btn-outline-danger mt-4">Cadastrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('../contents/footer')%>

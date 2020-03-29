@@ -1,0 +1,19 @@
+<%- include('contents/header')%>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <h3>Categorias</h3>
+             <% categorias.forEach(function(customer){
+                    %>
+                    <div class="card mt-2">
+                        <div class="card-body">
+                            <a href="/categorias/<%= customer._id%>"><%= customer.nome%></a>
+                        </div>
+                    </div>
+                    <%
+                });
+             %>
+            </div>
+        </div>
+    </div>
+<%- include('contents/footer')%>

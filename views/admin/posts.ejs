@@ -1,0 +1,34 @@
+<%- include('../contents/header')%>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <h2>Postagens</h2>
+                <a href="/admin/posts/add" class="btn btn-outline-danger">Novo post</a>
+                <%
+                    posts.forEach(function(customer){
+                        %>
+                        <div class="card mt-4">
+                            <div class="modal-header">
+                                <h4><%= customer.titulo%></h4>
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                    <%= customer.conteudo %><br>
+                                    <code><%= customer.date%></code><br>
+                                    <b style="float:right;"><%= customer.categoria.nome %></b>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div style="text-align: right;">
+                                    <a href="/admin/posts/edit/<%= customer._id%>" class="btn btn-outline-info">Editar</a>
+                                    <a href="/admin/posts/remove/<%= customer._id%>" class="btn btn-outline-danger">Remover</a>
+                                </div>
+                            </div>
+                        </div>
+                        <%
+                    });
+                %>
+            </div>
+        </div>
+    </div>
+<%- include('../contents/footer')%>

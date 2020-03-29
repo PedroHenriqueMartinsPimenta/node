@@ -1,0 +1,38 @@
+<%- include('contents/header')%>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="jumbotron">
+                    <h1 class="display-4">Bem vindo!</h1>
+                    <p class="lead">Blog denvolvido para aprimorar meu conhecimento em nodeJs</p>
+                    <hr class="my-4">
+                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                    <p class="lead">
+                      <a class="btn btn-primary btn-lg" href="/register" role="button">Cadastre-se</a>
+                    </p>
+                  </div>
+
+                  <h4>Posts recentes</h4>
+                  <%
+                    posts.forEach(function(customer){
+                        %>
+                        <div class="card mt-4">
+                            <div class="card-header">
+                                <h4><%= customer.titulo%></h4>
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                    <%= customer.conteudo.substring(0, 300) %>...<br>
+                                    <code><%= customer.date%></code><br>
+                                    <b style="float:right;"><%= customer.categoria.nome %></b>
+                                    <a href="/post/<%= customer._id%>" class="btn btn-outline-danger">Leias mais</a>
+                                </p>
+                            </div>
+                        </div>
+                        <%
+                    });
+                  %>
+            </div>
+        </div>
+    </div>
+<%- include('contents/footer')%>

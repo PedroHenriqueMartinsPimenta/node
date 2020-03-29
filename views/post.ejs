@@ -1,0 +1,20 @@
+<%- include('contents/header')%>
+    <div class="container">    
+        <div class="row">    
+            <div class="col-12">    
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h4><%= post.titulo%></h4>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            <%= post.conteudo %><br>
+                            <code><%= post.date%></code><br>
+                            <b style="float:right;"><%= post.categoria.nome %></b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('contents/footer')%>

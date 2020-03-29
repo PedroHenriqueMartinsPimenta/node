@@ -1,0 +1,57 @@
+<%- include('../contents/header')%>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <h2>Categorias</h2>
+                <a href="/admin/categorias/add" class="btn btn-outline-danger">Nova categoria</a>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td scope="col">Nome</td>
+                            <td scope="col">Slug</td>
+                            <td scope="col">Data</td>
+                            <td scope="col">Editar</td>
+                            <td scope="col">Remover</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%
+                            if(categorias.length == 0 || categorias == null){
+                        %>
+                                <tr>
+                                    <td scope="row" colspan="5">Nenhuma categoria cadastrada</td>
+                                </tr>
+                        <%
+                            }else{
+                                categorias.forEach(function(customer){
+                                    %>
+                                        <tr>
+                                            <td scope="row"><%= customer.nome%></td>
+                                            <td scope="row"><%= customer.slug%></td>
+                                            <td scope="row"><%= customer.date%></td>
+                                            <td scope="row">
+                                                <a href="/admin/categorias/update/<%= customer.id %>">
+                                                    Atualizar
+                                                </a>
+                                            </td>
+                                            <td scope="row">
+                                                <a href="/admin/categorias/delete/<%= customer.id %>">
+                                                    Remover
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <%
+                                });
+                            }
+                        %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<%- include('../contents/footer')%>
